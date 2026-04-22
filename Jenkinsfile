@@ -17,7 +17,8 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 5000:5000 event-registration-app'
+                sh 'docker rm -f event-app || true'
+                sh 'docker run -d -p 5000:5000 --name event-app event-registration-app'
             }
         }
 
