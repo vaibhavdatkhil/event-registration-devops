@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/vaibhavdatkhil/event-registration-devops.git'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t event-registration-app .'
